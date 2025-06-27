@@ -152,6 +152,7 @@ text = "Press enter to restart!
 label_settings = SubResource("LabelSettings_y1jas")
 
 [node name="Player" parent="." instance=ExtResource("6_g0r03")]
+transform = Transform3D(0.999592, 0, -0.0285497, 0, 1, 0, 0.0285497, 0, 0.999592, 0, 0, 0)
 
 [node name="bottomBorder" type="StaticBody3D" parent="."]
 collision_layer = 2
