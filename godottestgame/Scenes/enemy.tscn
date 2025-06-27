@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://beml1bfpcc835"]
+
+[ext_resource type="Script" uid="uid://bim3yh7ofsqgo" path="res://Scripts/enemy.gd" id="1_hghv2"]
+[ext_resource type="Texture2D" uid="uid://d4kx0lnqypyx6" path="res://Assets/Texture/dimple.png" id="2_1f0kj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ne65n"]
+render_priority = 1
+diffuse_mode = 3
+albedo_texture = ExtResource("2_1f0kj")
+emission_enabled = true
+emission_energy_multiplier = 0.4
+emission_texture = ExtResource("2_1f0kj")
+
+[sub_resource type="SphereMesh" id="SphereMesh_hghv2"]
+material = SubResource("StandardMaterial3D_ne65n")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1f0kj"]
+
+[node name="enemy" type="CharacterBody3D" groups=["mob"]]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_hghv2")
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Sphere" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("SphereMesh_hghv2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, 0, 0, 0)
+shape = SubResource("SphereShape3D_1f0kj")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+aabb = AABB(-0.531527, -0.520054, -0.514289, 1.06305, 1.04011, 1.02858)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

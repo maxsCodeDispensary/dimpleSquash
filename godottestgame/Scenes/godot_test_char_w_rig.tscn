@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dci0480bslb5i"]
+
+[ext_resource type="PackedScene" uid="uid://ctv43ifk4umg2" path="res://Assets/Models/godotTestCharWRig.fbx" id="1_pa170"]
+[ext_resource type="Material" uid="uid://dt620otfjg4mh" path="res://Assets/Materials/Player.tres" id="2_pa170"]
+
+[node name="godotTestCharWRig" instance=ExtResource("1_pa170")]
+
+[node name="Cylinder" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_pa170")
